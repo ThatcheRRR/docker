@@ -4,11 +4,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Docker</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/white.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -27,13 +27,205 @@
 			<div class="slides">
 				<section>
 					<section>
-						Slide1
-					</section>
-					<section>
-						One more sub-slide
+						<h1>
+							<img src = "lib/docker-5.svg" alt = "docker logo">
+						</h1>
 					</section>
 				</section>
-				<section>Slide 2</section>
+				<section>
+					<section>
+						<h2>
+							What is Docker?
+						</h2>
+					</section>
+					<section>
+						Docker is an open platform for developing, shipping, and running applications.
+					</section>
+					<section>
+						<ul>
+							Docker provides tooling and a platform to manage the lifecycle of your containers:
+							<li>
+								Develop your application and its supporting components using containers.
+							</li>
+							<li>
+								The container becomes the unit for distributing and testing your application.
+							</li>
+							<li>
+								When you’re ready, deploy your application into your production environment, as a container. This works the same whether your production environment is a local data center, a cloud provider, or a hybrid of the two.
+							</li>
+						</ul>
+					</section>
+					<section>
+						"It works on my machine!!!"
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>
+							Docker vs VMs
+						</h2>
+					</section>
+					<section>
+						<img src = "lib/containers-vs-vms.png" alt = "graphic of comparison">
+					</section>
+					<section>
+						<h3>
+							Docker Benefits
+						</h3>
+						<ul>
+							<li>Portable</li>
+							<li>Fast</li>
+							<li>Secure</li>
+							<li>Open Source</li>
+							<li>Lightweight</li>
+							<li>Fast Growing Community</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>
+							Installing Docker
+						</h2>
+					</section>
+					<section>
+							<h2>
+								Mac OSX / Windows
+							</h2><br>
+							Docker Machine
+							https://docs.docker.com/installation/mac/
+							https://docs.docker.com/installation/windows/
+					</section>
+					<section class = "ubuntu">
+						<h2>
+							Ubuntu
+						</h2><br>
+						<ol>
+							<li>
+								Update the <code>apt</code> package index.
+								<pre><code>$ sudo apt-get update</code></pre>
+							</li>
+							<li>
+								Install the latest version of Docker Engine - Community and containerd, or go to the next step to install a specific version:
+								<pre><code>$ sudo apt-get install docker-ce docker-ce-cli containerd.io</code></pre>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>
+							Ubuntu
+						</h2>
+						<ol>
+							<li value = "3">
+								To install a specific version of Docker Engine - Community, list the available versions in the repo, then select and install:
+								<pre><code>$ apt-cache madison docker-ce
+docker-ce | 5:18.09.1~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu  xenial/stable amd64 Packages
+docker-ce | 5:18.09.0~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu  xenial/stable amd64 Packages
+docker-ce | 18.06.1~ce~3-0~ubuntu       | https://download.docker.com/linux/ubuntu  xenial/stable amd64 Packages
+docker-ce | 18.06.0~ce~3-0~ubuntu       | https://download.docker.com/linux/ubuntu  xenial/stable amd64 Packages
+...</code></pre>
+							</li>
+							<li>
+							Verify that Docker Engine - Community is installed correctly by running the hello-world image.
+							<pre><code>$ sudo docker run hello-world</code></pre>
+							</li>
+						</ol>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>
+							Docker architecture
+						</h2>
+						<img src = "lib/architecture.svg" alt = "docker architecture">
+					</section>
+					<section>
+						<h3>
+							Docker client
+						</h3>
+						The Docker client is the primary way that many Docker users interact with Docker. When you use commands such as docker run, the client sends these commands to dockerd, which carries them out. The docker command uses the Docker API. The Docker client can communicate with more than one daemon.
+					</section>
+					<section>
+						<h3>
+							Docker daemon
+						</h3>
+						The Docker daemon listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. A daemon can also communicate with other daemons to manage Docker services.
+					</section>
+					<section>
+						<h3>
+							Docker registry
+						</h3>
+						A Docker <em>registry</em> stores Docker images. Docker Hub is a public registry that anyone can use, and Docker is configured to look for images on Docker Hub by default. You can even run your own private registry. If you use Docker Datacenter (DDC), it includes Docker Trusted Registry (DTR).
+					</section>
+					<section>
+						<ul>
+							Docker objects
+							<li>
+								Images
+							</li>
+							<li>
+								Containers
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>
+							Images
+						</h3>
+						An image is a read-only template with instructions for creating a Docker container. Often, an image is <em>based</em> on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.
+					</section>
+					<section>
+						<h3>
+							Containers
+						</h3>
+						A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>
+							Docker Hub
+						</h2>
+						<img src = "lib/index-welcome.png" alt = "docker hub main paige">
+					</section>
+					<section>
+						Features
+						<ul class = "features">
+							<li>Repositories: Push and pull container images.</li>
+							<li>Teams & Organizations: Manage access to private repositories of container images.</li>
+							<li>Official Images: Pull and use high-quality container images provided by Docker.</li>
+							<li>Publisher Images: Pull and use high- quality container images provided by external vendors. Certified images also include support and guarantee compatibility with Docker Enterprise.</li>
+							<li>Builds: Automatically build container images from GitHub and Bitbucket and push them to Docker Hub.</li>
+							<li>Webhooks: Trigger actions after a successful push to a repository to integrate Docker Hub with other services.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<h2>
+						Basic Docker Commands
+					</h2>
+					<pre><code>// General info
+man docker // man docker-run
+docker help // docker help run
+docker info
+docker version
+docker network ls
+			
+// Images
+docker images // docker [IMAGE_NAME]
+docker pull [IMAGE] // docker push [IMAGE]
+							
+// Containers
+docker run
+docker ps // docker ps -a, docker ps -l
+docker stop/start/restart [CONTAINER]
+docker stats [CONTAINER]
+docker top [CONTAINER]
+docker port [CONTAINER]
+docker inspect [CONTAINER]
+docker inspect -f "{{ .State.StartedAt }}" [CONTAINER]
+docker rm [CONTAINER]</code></pre>
+				</section>
 			</div>
 		</div>
 
